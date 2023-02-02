@@ -38,8 +38,8 @@ class FirstFragment : Fragment() {
         }
 
         binding.button.setOnClickListener {
-            val email = binding.editTextTextEmailAddress.text.toString()
-            val password = binding.editTextTextPassword.text.toString()
+            val email = binding.emailAddress.text.toString()
+            val password = binding.password.text.toString()
 
             Log.i("FirstFragment", "onViewCreated: email $email, password $password")
         }
