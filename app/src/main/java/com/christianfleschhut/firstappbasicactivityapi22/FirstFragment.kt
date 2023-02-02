@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.FragmentFirstBinding
 
@@ -41,7 +42,11 @@ class FirstFragment : Fragment() {
             val email = binding.emailAddress.text.toString()
             val password = binding.password.text.toString()
 
-            Log.i("FirstFragment", "onViewCreated: email $email, password $password")
+            val message = getString(R.string.message_text, email, password)
+
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+
+            Log.i("FirstFragment", "onViewCreated: $message")
         }
     }
 
