@@ -36,10 +36,12 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
-        addSomeViews(10, binding.myLayout)
+        addSomeViews(10)
     }
 
-    fun addSomeViews(count: Int, layout: LinearLayout) {
+    fun addSomeViews(count: Int) {
+        val layout = findViewById<LinearLayout>(R.id.my_layout)
+
         for (i in 1..count) {
             val textView = TextView(this)
             textView.text = "TextView $i"
