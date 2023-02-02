@@ -37,6 +37,13 @@ class SecondFragment : Fragment() {
         }
 
         binding.textviewSecond.text = getString(R.string.hello_second_fragment, "abc")
+
+        binding.oliveSwitch.setOnCheckedChangeListener { _, isChecked ->
+            binding.oliveImage.setImageResource(
+                if (isChecked) R.drawable.olive_branch
+                else R.drawable.logo
+            )
+        }
     }
 
     override fun onDestroyView() {
