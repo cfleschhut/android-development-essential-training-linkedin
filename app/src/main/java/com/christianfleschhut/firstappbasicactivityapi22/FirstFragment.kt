@@ -1,6 +1,7 @@
 package com.christianfleschhut.firstappbasicactivityapi22
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -36,7 +37,12 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 
-        binding.textView.text = getString(R.string.first_fragment_textview)
+        binding.button.setOnClickListener {
+            val email = binding.editTextTextEmailAddress.text.toString()
+            val password = binding.editTextTextPassword.text.toString()
+
+            Log.i("FirstFragment", "onViewCreated: email $email, password $password")
+        }
     }
 
     override fun onDestroyView() {

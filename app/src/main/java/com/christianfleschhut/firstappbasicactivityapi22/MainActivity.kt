@@ -9,9 +9,6 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -35,23 +32,6 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-
-        addSomeViews(10)
-    }
-
-    fun addSomeViews(count: Int) {
-        val layout = findViewById<LinearLayout>(R.id.my_layout)
-
-        for (i in 1..count) {
-            val textView = TextView(this)
-            textView.text = "TextView $i"
-            textView.textSize = 20f
-            layout.addView(textView)
-        }
-
-        val button = Button(this)
-        button.text = "Button"
-        layout.addView(button)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
