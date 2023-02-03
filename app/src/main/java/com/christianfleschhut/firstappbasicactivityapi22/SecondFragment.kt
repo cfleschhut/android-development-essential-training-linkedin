@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.FragmentSecondBinding
 
 /**
@@ -39,9 +40,9 @@ class SecondFragment : Fragment() {
         binding.textviewSecond.text = getString(R.string.hello_second_fragment, "abc")
 
         binding.oliveSwitch.setOnCheckedChangeListener { _, isChecked ->
-            binding.oliveImage.setImageResource(
-                if (isChecked) R.drawable.olive_branch
-                else R.drawable.ic_olive_branch_vector
+            binding.oliveImage.load(
+                if (isChecked) "https://picsum.photos/id/14/800"
+                else "https://picsum.photos/id/15/800"
             )
         }
     }
