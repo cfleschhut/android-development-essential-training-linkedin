@@ -24,6 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+        supportActionBar?.let {
+            it.setDisplayShowHomeEnabled(true)
+            it.setDisplayUseLogoEnabled(true)
+            it.setLogo(R.drawable.ic_logo)
+        }
+
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
