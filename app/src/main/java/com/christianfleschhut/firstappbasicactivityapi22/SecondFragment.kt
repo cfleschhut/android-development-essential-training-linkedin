@@ -41,7 +41,7 @@ class SecondFragment : Fragment() {
         binding.oliveSwitch.setOnCheckedChangeListener { _, isChecked ->
             binding.oliveImage.setImageResource(
                 if (isChecked) R.drawable.olive_branch
-                else R.drawable.logo
+                else R.drawable.medium_olive_oil
             )
         }
     }

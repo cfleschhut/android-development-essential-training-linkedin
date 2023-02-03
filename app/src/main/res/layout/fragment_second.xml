@@ -31,12 +31,12 @@
     <ImageView
         android:id="@+id/oliveImage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="center"
+        android:layout_height="400dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo"
+        app:srcCompat="@drawable/medium_olive_oil"
         tools:src="@tools:sample/avatars[0]" />
 
     <Switch
