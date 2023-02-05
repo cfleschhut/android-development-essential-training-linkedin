@@ -12,6 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="materialButtonStyle">@style/MyButton</item>
     </style>
 
     <style name="Theme.FirstAppBasicActivityAPI22.NoActionBar">
@@ -22,4 +24,10 @@
     <style name="Theme.FirstAppBasicActivityAPI22.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.FirstAppBasicActivityAPI22.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/purple_500</item>
+        <item name="icon">@drawable/ic_logo</item>
+        <item name="iconTint">@color/purple_500</item>
+    </style>
 </resources>
