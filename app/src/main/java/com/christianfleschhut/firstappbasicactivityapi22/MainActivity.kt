@@ -1,6 +1,7 @@
 package com.christianfleschhut.firstappbasicactivityapi22
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -11,6 +12,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.ActivityMainBinding
 
+const val LOG_TAG = "lifecycle_monitor"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Log.i(LOG_TAG, "onCreate")
 
         setSupportActionBar(binding.toolbar)
 
@@ -39,6 +43,31 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Show info") {}
                 .show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(LOG_TAG, "onStart")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(LOG_TAG, "onStop")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(LOG_TAG, "onPause")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(LOG_TAG, "onResume")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(LOG_TAG, "onDestroy")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
