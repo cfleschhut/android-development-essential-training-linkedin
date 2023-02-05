@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.ActivityMainBinding
 
 const val LOG_TAG = "lifecycle_monitor"
@@ -36,6 +37,12 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        binding.fab.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+
+            }
+        })
 
         binding.fab.setOnClickListener {
             Snackbar.make(it, "Snackbar!", Snackbar.LENGTH_INDEFINITE)
