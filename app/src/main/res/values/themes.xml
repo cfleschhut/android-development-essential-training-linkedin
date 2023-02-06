@@ -12,8 +12,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-
-        <item name="materialButtonStyle">@style/MyButton</item>
     </style>
 
     <style name="Theme.FirstAppBasicActivityAPI22.NoActionBar">
