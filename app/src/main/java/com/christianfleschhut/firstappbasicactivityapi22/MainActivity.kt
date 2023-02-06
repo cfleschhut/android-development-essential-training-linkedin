@@ -12,8 +12,6 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.ActivityMainBinding
 
-const val LOG_TAG = "lifecycle_monitor"
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
