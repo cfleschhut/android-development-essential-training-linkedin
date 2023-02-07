@@ -38,13 +38,19 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         val viewModel by viewModels<MainViewModel>()
-        viewModel.loadData()
+        viewModel.info.observe(this) {
+            displaySnackbar(it)
+        }
 
         binding.fab.setOnClickListener {
-            Snackbar.make(it, "Snackbar!", Snackbar.LENGTH_INDEFINITE)
-                .setAction("Show info") {}
-                .show()
+            viewModel.loadData()
         }
+    }
+
+    private fun displaySnackbar(count: Int) {
+        Snackbar.make(binding.root, "Current value: $count", Snackbar.LENGTH_LONG)
+            .setAction("Show info") {}
+            .show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
