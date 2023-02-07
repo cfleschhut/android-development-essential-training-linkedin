@@ -14,4 +14,6 @@
     <string name="button_label">Submit</string>
     <string name="message_text">email: %s, password: %s</string>
     <string name="switch_label">Display olive branch</string>
+
+    <string name="enter_label">Enter</string>
 </resources>
