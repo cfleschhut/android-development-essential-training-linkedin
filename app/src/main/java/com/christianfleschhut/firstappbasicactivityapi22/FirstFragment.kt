@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.FragmentFirstBinding
 
@@ -25,10 +26,8 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,13 +40,28 @@ class FirstFragment : Fragment() {
         binding.button.setOnClickListener {
             val email = binding.emailAddress.text.toString()
             val password = binding.password.text.toString()
-
             val message = getString(R.string.message_text, email, password)
 
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-
             Log.i("FirstFragment", "onViewCreated: $message")
         }
+
+        val viewModel by viewModels<MainViewModel>()
+
+        binding.addQuantityButton.setOnClickListener { viewModel.increaseQuantity() }
+        binding.removeQuantityButton.setOnClickListener { viewModel.decreaseQuantity() }
+        binding.checkoutButton.setOnClickListener { viewModel.checkout() }
+
+        viewModel.quantity.observe(this) { updateTotalCount(it) }
+        viewModel.totalAmount.observe(this) { handleCheckout(it) }
+    }
+
+    private fun updateTotalCount(total: Int) {
+        binding.total.text = total.toString()
+    }
+    
+    private fun handleCheckout(totalAmount: Int) {
+        Toast.makeText(context, "Total amount: $totalAmount", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

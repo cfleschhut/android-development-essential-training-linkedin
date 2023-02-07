@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         val viewModel by viewModels<MainViewModel>()
+
         viewModel.info.observe(this) {
             displaySnackbar(it)
         }
