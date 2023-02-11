@@ -2,16 +2,18 @@ package com.christianfleschhut.firstappbasicactivityapi22
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,9 +38,9 @@ class MainActivity : AppCompatActivity() {
             it.setLogo(R.drawable.ic_logo)
         }
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        val navController = findNavController(R.id.nav_host_fragment_content_main)
+//        appBarConfiguration = AppBarConfiguration(navController.graph)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
 
         viewModel.info.observe(this) {
             displaySnackbar(it)
@@ -47,6 +49,40 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {
             viewModel.loadData()
         }
+
+        supportFragmentManager.commit {
+            add<FirstFragment>(R.id.container, null)
+        }
+
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.action_home -> goToHome()
+                R.id.action_first -> goToFirst()
+                R.id.action_second -> goToSecond()
+                else -> false
+            }
+        }
+    }
+
+    private fun goToSecond(): Boolean {
+        supportFragmentManager.commit {
+            replace<SecondFragment>(R.id.container, null, null)
+        }
+        return true
+    }
+
+    private fun goToFirst(): Boolean {
+        supportFragmentManager.commit {
+            replace<FirstFragment>(R.id.container, null, null)
+        }
+        return true
+    }
+
+    private fun goToHome(): Boolean {
+        supportFragmentManager.commit {
+            replace<FirstFragment>(R.id.container, null, null)
+        }
+        return true
     }
 
     private fun displaySnackbar(count: Int) {

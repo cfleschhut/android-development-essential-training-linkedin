@@ -2,11 +2,11 @@ package com.christianfleschhut.firstappbasicactivityapi22
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.FragmentFirstBinding
@@ -17,9 +17,6 @@ import com.christianfleschhut.firstappbasicactivityapi22.databinding.FragmentFir
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
