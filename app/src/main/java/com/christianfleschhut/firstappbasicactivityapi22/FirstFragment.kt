@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.christianfleschhut.firstappbasicactivityapi22.data.Product
 import com.christianfleschhut.firstappbasicactivityapi22.databinding.FragmentFirstBinding
 
 /**
@@ -51,6 +52,16 @@ class FirstFragment : Fragment() {
 
         viewModel.quantity.observe(this) { updateTotalCount(it) }
         viewModel.totalAmount.observe(this) { handleCheckout(it) }
+
+        val product = Product(
+            name = "Item",
+            imageFile = "image_file",
+            description = "Item description",
+            size = 200,
+            price = 12.34
+        )
+
+        Log.i("Product item", "$product")
     }
 
     private fun updateTotalCount(total: Int) {
