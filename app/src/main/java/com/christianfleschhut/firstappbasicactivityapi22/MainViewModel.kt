@@ -1,15 +1,15 @@
 package com.christianfleschhut.firstappbasicactivityapi22
 
+import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.christianfleschhut.firstappbasicactivityapi22.data.ProductRepository
 
-private const val LOG_TAG = "MainViewModel"
+class MainViewModel(app: Application) : AndroidViewModel(app) {
 
-class MainViewModel : ViewModel() {
-
-    private val _info: MutableLiveData<Int> = MutableLiveData()
+    private val _info: MutableLiveData<Int> = MutableLiveData(0)
     private val _quantity: MutableLiveData<Int> = MutableLiveData(0)
     private val _totalAmount: MutableLiveData<Int> = MutableLiveData()
 
@@ -17,9 +17,13 @@ class MainViewModel : ViewModel() {
     val quantity: LiveData<Int> = _quantity
     val totalAmount: LiveData<Int> = _totalAmount
 
+    var productRepository: ProductRepository = ProductRepository()
+
     init {
-        Log.i(LOG_TAG, "created")
-        _info.value = 0
+        Log.i("MainViewModel", "created")
+
+        val data = productRepository.getTextFromResource(app, R.raw.olive_oils_data)
+        Log.i("Raw JSON data", data)
     }
 
     fun loadData() {
