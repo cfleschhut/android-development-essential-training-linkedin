@@ -3,11 +3,14 @@
 
     <item
         android:id="@+id/action_home"
-        android:title="Home" />
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/bottom_navigation_home" />
     <item
         android:id="@+id/action_first"
-        android:title="First" />
+        android:icon="@drawable/baseline_shopping_cart_24"
+        android:title="@string/bottom_navigation_first" />
     <item
         android:id="@+id/action_second"
-        android:title="Second" />
+        android:icon="@drawable/baseline_image_24"
+        android:title="@string/bottom_navigation_second" />
 </menu>
