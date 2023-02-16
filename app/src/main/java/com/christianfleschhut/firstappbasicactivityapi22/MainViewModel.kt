@@ -22,7 +22,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     init {
         Log.i("MainViewModel", "created")
 
-        val data = productRepository.getTextFromResource(app, R.raw.olive_oils_data)
+        val data = productRepository.getTextFromAsset(app, "olive_oils_data.json")
         Log.i("Raw JSON data", data)
     }
 
