@@ -17,13 +17,15 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     val quantity: LiveData<Int> = _quantity
     val totalAmount: LiveData<Int> = _totalAmount
 
-    var productRepository: ProductRepository = ProductRepository()
+    private var productRepository: ProductRepository = ProductRepository()
 
     init {
         Log.i("MainViewModel", "created")
 
-        val data = productRepository.getTextFromAsset(app, "olive_oils_data.json")
-        Log.i("Raw JSON data", data)
+        val data = productRepository.getProducts(app, "olive_oils_data.json")
+        data?.forEach {
+            Log.i("JSON data", "Product: ${it.name}")
+        }
     }
 
     fun loadData() {
