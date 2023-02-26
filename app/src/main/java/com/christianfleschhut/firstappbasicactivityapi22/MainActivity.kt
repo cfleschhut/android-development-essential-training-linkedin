@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         supportFragmentManager.commit {
-            add<FirstFragment>(R.id.container, null)
+            add<StocksFragment>(R.id.container, null)
         }
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToHome(): Boolean {
         supportFragmentManager.commit {
-            replace<FirstFragment>(R.id.container, null, null)
+            replace<StocksFragment>(R.id.container, null, null)
         }
         return true
     }
